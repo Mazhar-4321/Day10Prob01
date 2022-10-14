@@ -20,3 +20,25 @@ array[$index]=${dictionary[$i]}
 index=$((index+1))
 done
 echo ${array[@]}
+index=${#array[@]}
+for((j=0;j<$index;j=$((j+1))))
+do
+minIndex=$j
+minValue=${array[$j]}
+	for((k=$j+1;k<$index;k=$((k+1))))
+	do
+	if [[ $minValue -gt ${array[$k]} ]]
+	then
+	minIndex=$k
+	minValue=${array[$k]}
+	fi
+	done
+temp=${array[$j]}
+array[$j]=${array[$minIndex]}
+array[$minIndex]=$temp
+done
+for((i=$index;i>=0;i=$((i-1))))
+do
+echo ${array[$i]}
+done
+##echo ${array[@]}
