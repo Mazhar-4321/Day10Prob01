@@ -41,4 +41,4 @@ for((i=$index;i>=0;i=$((i-1))))
 do
 echo ${array[$i]}
 done
-##echo ${array[@]}
+echo ${array[@]}
